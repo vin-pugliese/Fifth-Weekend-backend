@@ -37,6 +37,11 @@ public class SpettacoloServiceImpl implements SpettacoloService{
         spettacoloRepository.deleteById(id);
     }
 
+    /**
+     * Checks if there are free slots to get a reservation
+     * @param id
+     * @return
+     */
     @Override
     public boolean libero(String id) {
         Spettacolo spettacolo = this.findById(id);
@@ -49,6 +54,13 @@ public class SpettacoloServiceImpl implements SpettacoloService{
         return false;
     }
 
+    /**
+     * Checks if there is a reservation for the specifiec client
+     * @param id
+     * @param nome
+     * @param tel
+     * @return
+     */
     @Override
     public int trova(String id, String nome, String tel) {
         Spettacolo spettacolo = this.findById(id);
@@ -65,6 +77,12 @@ public class SpettacoloServiceImpl implements SpettacoloService{
         return -1;
     }
 
+    /**
+     * Adds a reservation to a show for a specific client
+     * @param id
+     * @param nome
+     * @param tel
+     */
     @Override
     public void prenota(String id, String nome, String tel) {
         Spettacolo spettacolo = this.findById(id);
@@ -87,6 +105,12 @@ public class SpettacoloServiceImpl implements SpettacoloService{
         }
     }
 
+    /**
+     * Removes the reservation for a show for a specific client
+     * @param id
+     * @param nome
+     * @param tel
+     */
     @Override
     public void disdici(String id, String nome, String tel) {
         Spettacolo spettacolo = this.findById(id);
@@ -108,6 +132,11 @@ public class SpettacoloServiceImpl implements SpettacoloService{
         spettacoloRepository.save(spettacolo);
      }
 
+    /**
+     * Checks if there is a client that has a reservation and a pending reservation
+     * @param id
+     * @return
+     */
     @Override
     public boolean incompleto(String id) {
         Spettacolo spettacolo = this.findById(id);
@@ -120,5 +149,25 @@ public class SpettacoloServiceImpl implements SpettacoloService{
             }
         }
         return false;
+    }
+
+    /**
+     * returns the list of clients with a pending reservation
+     * @param id
+     * @return
+     */
+    @Override
+    public List<Cliente> getClientiAttesa(String id) {
+        return this.findById(id).getAttesa();
+    }
+
+    /**
+     * returns the array of clients with a reservation
+     * @param id
+     * @return
+     */
+    @Override
+    public Cliente[] getClientiPrenotati(String id) {
+        return this.findById(id).getPrenotazioni();
     }
 }

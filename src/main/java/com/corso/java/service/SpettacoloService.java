@@ -1,5 +1,6 @@
 package com.corso.java.service;
 
+import com.corso.java.domain.Cliente;
 import com.corso.java.domain.Spettacolo;
 
 import java.util.List;
@@ -24,4 +25,8 @@ public interface SpettacoloService {
     void disdici(String id, String nome, String tel);
 
     boolean incompleto(String id);
+
+    List<Cliente> getClientiAttesa(String id);
+
+    Cliente[] getClientiPrenotati (String id);
 }

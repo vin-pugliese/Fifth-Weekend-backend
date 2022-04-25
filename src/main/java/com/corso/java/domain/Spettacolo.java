@@ -12,8 +12,12 @@ public class Spettacolo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
+    @Lob
     private Cliente[] prenotazioni;
+
     private int n_prenotazioni;
+
+    @Lob
     private ArrayList<Cliente> attesa;
 
     public Spettacolo(){

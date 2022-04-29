@@ -52,5 +52,6 @@ public class Cliente implements Serializable {
         Cliente cliente = (Cliente) o;
         return Objects.equals(nome, cliente.nome) && Objects.equals(numTelefono, cliente.numTelefono);
     }
+
 }
 

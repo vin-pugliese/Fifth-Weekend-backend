@@ -3,6 +3,7 @@ package com.corso.java.service;
 import com.corso.java.domain.Cliente;
 import com.corso.java.domain.Spettacolo;
 import com.corso.java.repository.SpettacoloRepository;
+import com.fasterxml.jackson.core.JsonParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +28,8 @@ public class SpettacoloServiceImpl implements SpettacoloService{
     }
 
     @Override
-    public Spettacolo create(int n_prenotazione) {
-        Spettacolo spettacolo = new Spettacolo((n_prenotazione));
+    public Spettacolo create(Spettacolo spettacolo) {
+        spettacolo.setDimPrenotazione(spettacolo.getN_prenotazioni());
         return spettacoloRepository.save(spettacolo);
     }
 
@@ -38,7 +39,7 @@ public class SpettacoloServiceImpl implements SpettacoloService{
     }
 
     /**
-     * Checks if there are free slots to get a reservation
+     * Checks if there are any free slots to get a reservation
      * @param id
      * @return
      */
@@ -55,7 +56,7 @@ public class SpettacoloServiceImpl implements SpettacoloService{
     }
 
     /**
-     * Checks if there is a reservation for the specifiec client
+     * Checks if there is a reservation for the specific client
      * @param id
      * @param nome
      * @param tel
@@ -118,7 +119,7 @@ public class SpettacoloServiceImpl implements SpettacoloService{
         ArrayList<Cliente> attesa = spettacolo.getAttesa();
         Cliente cliente = new Cliente(nome, tel);
         for(int i =0; i<spettacolo.getN_prenotazioni(); i++){
-            if(prenotazioni[i].equals(cliente)) {
+            if(prenotazioni[i] == null || prenotazioni[i].equals(cliente)) {
                 prenotazioni[i]= null;
                 if(!attesa.isEmpty()) {
                     cliente = attesa.get(0);
@@ -170,4 +171,6 @@ public class SpettacoloServiceImpl implements SpettacoloService{
     public Cliente[] getClientiPrenotati(String id) {
         return this.findById(id).getPrenotazioni();
     }
+
+
 }

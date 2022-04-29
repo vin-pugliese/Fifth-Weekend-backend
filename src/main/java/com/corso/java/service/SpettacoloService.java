@@ -12,7 +12,7 @@ public interface SpettacoloService {
 
     Spettacolo findById(String id);
 
-    Spettacolo create(int n_prenotazioni);
+    Spettacolo create(Spettacolo spettacolo);
 
     void deleteById(String id);
 
@@ -29,4 +29,6 @@ public interface SpettacoloService {
     List<Cliente> getClientiAttesa(String id);
 
     Cliente[] getClientiPrenotati (String id);
+
+
 }

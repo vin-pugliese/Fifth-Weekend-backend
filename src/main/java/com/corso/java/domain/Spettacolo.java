@@ -12,6 +12,8 @@ public class Spettacolo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
+    private String nome_spettacolo;
+
     @Lob
     private Cliente[] prenotazioni;
 
@@ -25,6 +27,13 @@ public class Spettacolo {
         this.attesa = new ArrayList<Cliente>();
     }
 
+    public Spettacolo (String nome, int n){
+        this.nome_spettacolo = nome;
+        this.n_prenotazioni = n;
+        this.prenotazioni = new Cliente[n_prenotazioni];
+        this.attesa = new ArrayList<Cliente>();
+    }
+
     public Spettacolo(int n){
         this.n_prenotazioni = n;
         this.prenotazioni = new Cliente[n_prenotazioni];
@@ -34,12 +43,24 @@ public class Spettacolo {
 
     //--------------------Getters&Setters
 
+    public void setDimPrenotazione (int n){
+        this.prenotazioni = new Cliente[n];
+    }
+
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getNome_spettacolo() {
+        return nome_spettacolo;
+    }
+
+    public void setNome_spettacolo(String nome_spettacolo) {
+        this.nome_spettacolo = nome_spettacolo;
     }
 
     public Cliente[] getPrenotazioni() {

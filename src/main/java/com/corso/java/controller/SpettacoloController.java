@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping("/api/v1")
+@RequestMapping("/spettacolo/v1")
 public class SpettacoloController {
 
     @Autowired
@@ -24,9 +24,10 @@ public class SpettacoloController {
         return new ResponseEntity<List<Spettacolo>>(spettacoli, HttpStatus.OK);
     }
 
-    @PostMapping(path="/{n_prenotazione}")
-    ResponseEntity<Spettacolo> create(@PathVariable int n_prenotazione){
-        Spettacolo x = spettacoloService.create(n_prenotazione);
+
+    @PostMapping(path="/create")
+    ResponseEntity<Spettacolo> create(@RequestBody Spettacolo spettacolo){
+        Spettacolo x = spettacoloService.create(spettacolo);
         return new ResponseEntity<Spettacolo>(x, HttpStatus.OK);
     }
 

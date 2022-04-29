@@ -1,0 +1,28 @@
+
+<div class="reservation" *ngIf="!showHidden()">
+    <div class="container-lg"> Prenotati
+            <div id="reservation-row" class="p-3 border bg-light" *ngFor="let cliente of clientiPrenotati">
+                <p>{{cliente.nome}} - {{cliente.numTelefono}}</p>
+                <a [routerLink]="['disdetta/'+ id+ '/'+ cliente.nome+'/'+ cliente.numTelefono ]" class="btn btn-secondary">Elimina</a>
+            </div>
+    </div>
+
+    <div class="container-lg"> In attesa
+        <div id="reservation-row" class="p-3 border bg-light" *ngFor="let cliente of clientiAttesa">
+            {{cliente.nome}} - {{cliente.numTelefono}}
+        </div>
+    </div>
+</div>
+
+<div id="noreservations" class="p-3 border bg-light" *ngIf="showHidden()">
+<p>Non ci sono prenotazioni per questo spettacolo</p>
+
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+
+
+

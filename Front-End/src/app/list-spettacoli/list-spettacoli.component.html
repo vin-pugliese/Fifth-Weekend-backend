@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;" *ngFor="let spettacolo of spettacoli">
+    <div class="card-body">
+        <h5 class="card-title">{{spettacolo.nome_spettacolo}}</h5>
+        <p class="card-text">ID spettacolo: {{spettacolo.id}} <br>
+            Capienza massima:  {{spettacolo.n_prenotazioni}}</p>
+        <a [routerLink]="['/spettacolo/', spettacolo.id]" class="btn btn-primary">Dettagli</a>
+    </div>
+</div>
+
+<div class="container-lg" *ngIf="showWelcome()" >
+
+    <p>OPS! Sembra che ancora non ci siano spettacoli presenti. Prova a inserirne uno nuovo.</p>
+
+    <p>OPS! Seems like there are no shows available. Try to register a new one.</p>
+
+</div>

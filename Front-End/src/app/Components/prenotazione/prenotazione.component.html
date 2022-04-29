@@ -1,0 +1,41 @@
+<form class = "form-dark bg-dark" #addPrenotazione="ngForm" (ngSubmit) ="handleSubmit(addPrenotazione)">
+    <div class="mb-3">
+      <label for="id_spett" class="form-label">Id spettacolo: </label>
+      <input 
+          required 
+          minlength="1"
+          ngModel
+          type="text" 
+          name="id" 
+          class="form-control" 
+          id="id_spett">
+    </div>
+    <div class="mb-3">
+      <label for="nome_cliente" class="form-label">Nome: </label>
+      <input 
+          required 
+          minlength="1"
+          ngModel 
+          type="text" 
+          name="nome_cliente" 
+          class="form-control" 
+          id="nome"/>
+    </div>
+    <div class="mb-3">
+        <label for="tel" class="form-label">numero di telefono: </label>
+        <input 
+            required 
+            minlength="1"
+            ngModel 
+            type="text" 
+            name="tel" 
+            class="form-control" 
+            id="tel"/>
+      </div>
+      <input type="submit" class="btn btn-primary" value="Submit"/>
+        
+  
+    
+  </form>
+
+  <div>aaaaaaaaaaaaaaaaaaaaaaaaa</div>

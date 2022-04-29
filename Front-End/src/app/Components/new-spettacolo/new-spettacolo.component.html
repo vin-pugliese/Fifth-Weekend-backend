@@ -1,0 +1,9 @@
+<form class = "form-dark bg-dark" #addSpettacolo ="ngForm" (ngSubmit)="handleSubmit(addSpettacolo)">
+    <div class="mb-3">
+      <label for="nome_spettacolo" class="form-label">Nome dello spettacolo: </label>
+      <input ngModel type="text" name="nome_spettacolo" class="form-control" id="nome_spettacolo">
+      <label for="n_prenotazioni" class="form-label">Numero posti per lo spettacolo: </label>
+      <input ngModel type="text" name="n_prenotazioni" class="form-control" id="n_prenotazioni">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

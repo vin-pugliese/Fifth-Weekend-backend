@@ -1,0 +1,15 @@
+.reservation{
+    display: flex;
+    flex-direction: row;
+}
+
+#reservation-row a{
+    align-self: right;
+    width: 49%;
+    display: inline;
+}
+
+#reservation-row p{
+    width: 49%;
+    display: inline;
+}

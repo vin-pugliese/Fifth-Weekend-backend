@@ -10,8 +10,15 @@ import { Router } from '@angular/router';
 })
 export class PrenotazioneComponent implements OnInit {
 
+  id: String = '';
+  nome_cliente: String ='';
+  tel : String ='';
+
   constructor(private httpClient: HttpClient,
-              private router : Router) { }
+              private router : Router
+              ) {
+                
+               }
 
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false; 
